@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BulkyBook.DataAccess.Repository
 {
@@ -20,11 +19,10 @@ namespace BulkyBook.DataAccess.Repository
 
         public void Update(CoverType coverType)
         {
-            var objFromDb = _db.CoverType.FirstOrDefault(s => s.Id == coverType.Id);
-            if(objFromDb != null)
+            var objFromDb = _db.CoverTypes.FirstOrDefault(s => s.Id == coverType.Id);
+            if (objFromDb != null)
             {
                 objFromDb.Name = coverType.Name;
-
                
             }
         }

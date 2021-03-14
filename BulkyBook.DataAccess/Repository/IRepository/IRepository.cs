@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BulkyBook.DataAccess.Repository.IRepository
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<T> where T :class
     {
         T Get(int id);
 
@@ -17,19 +16,15 @@ namespace BulkyBook.DataAccess.Repository.IRepository
             string includeProperties = null
             );
 
-        T FirstOrDefault(
+        T GetFirstOrDefault(
             Expression<Func<T, bool>> filter = null,
             string includeProperties = null
             );
 
         void Add(T entity);
-
         void Remove(int id);
-
         void Remove(T entity);
-
-        void RemoveRange(IEnumerable<T> entities);
-
+        void RemoveRange(IEnumerable<T> entity);
 
 
     }

@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BulkyBook.DataAccess.Repository
 {
@@ -21,10 +20,9 @@ namespace BulkyBook.DataAccess.Repository
         public void Update(Category category)
         {
             var objFromDb = _db.Categories.FirstOrDefault(s => s.Id == category.Id);
-            if(objFromDb != null)
+            if (objFromDb != null)
             {
                 objFromDb.Name = category.Name;
-
                
             }
         }

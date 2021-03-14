@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BulkyBook.DataAccess.Repository
 {
@@ -55,7 +54,7 @@ namespace BulkyBook.DataAccess.Repository
                 var item2 = result.Read<T2>().ToList();
 
 
-                if (item1 != null && item2 != null)
+                if(item1!=null && item2 != null)
                 {
                     return new Tuple<IEnumerable<T1>, IEnumerable<T2>>(item1, item2);
                 }
@@ -70,7 +69,7 @@ namespace BulkyBook.DataAccess.Repository
             using (SqlConnection sqlCon = new SqlConnection(ConnectionString))
             {
                 sqlCon.Open();
-                var value = sqlCon.Query<T>(procedureName, param, commandType: System.Data.CommandType.StoredProcedure);
+                var value =  sqlCon.Query<T>(procedureName, param, commandType: System.Data.CommandType.StoredProcedure);
                 return (T)Convert.ChangeType(value.FirstOrDefault(), typeof(T));
             }
         }
@@ -80,7 +79,7 @@ namespace BulkyBook.DataAccess.Repository
             using (SqlConnection sqlCon = new SqlConnection(ConnectionString))
             {
                 sqlCon.Open();
-                return (T)Convert.ChangeType(sqlCon.ExecuteScalar<T>(procedureName, param, commandType: System.Data.CommandType.StoredProcedure), typeof(T));
+                 return (T)Convert.ChangeType(sqlCon.ExecuteScalar<T>(procedureName, param, commandType: System.Data.CommandType.StoredProcedure), typeof(T));
             }
         }
     }
